@@ -2,7 +2,7 @@
 
 A brutalist-style portfolio template for designers, developers, and creatives.
 
-![BRUTALISTFOLIO Preview](preview.png)
+![BRUTALISTFOLIO Preview]([preview.png](https://media.discordapp.net/attachments/1328480497143386172/1371287583299993630/Screenshot_2025-05-12_at_01.46.42.png?ex=68229695&is=68214515&hm=9d26b8c39babea7fc312c9b8130d1bb642f141e8372d463e90d5b02eb6cd9bb7&=&format=webp&quality=lossless&width=3394&height=1738))
 
 ## Features
 
