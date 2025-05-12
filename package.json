@@ -1,0 +1,25 @@
+{
+  "name": "brutalistfolio",
+  "version": "1.0.0",
+  "description": "A brutalist portfolio website showcasing raw, honest, functional design",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "brutalist",
+    "web",
+    "design",
+    "portfolio",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+} 

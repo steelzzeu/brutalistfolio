@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAW FORMS | BRUTALISTFOLIO</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* Project-specific styles */
+    .project-title {
+      font-size: 5rem;
+      letter-spacing: -3px;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .project-title::after {
+      content: "";
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      width: 10rem;
+      height: 0.5rem;
+      background-color: var(--black);
+    }
+    
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .project-specs {
+      border: 3px solid var(--black);
+      padding: 2rem;
+    }
+    
+    .specs-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    
+    .specs-list {
+      list-style-type: none;
+      font-family: monospace;
+    }
+    
+    .specs-list li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    
+    .specs-list li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+    }
+    
+    .project-description {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+    
+    /* Form showcase */
+    .form-showcase {
+      margin: 4rem 0;
+      border: 3px solid var(--black);
+      padding: 3rem;
+      position: relative;
+    }
+    
+    .showcase-title {
+      position: absolute;
+      top: -1.5rem;
+      left: 2rem;
+      font-size: 1rem;
+      background-color: var(--white);
+      padding: 0 0.5rem;
+      font-weight: bold;
+    }
+    
+    .forms-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
+    }
+    
+    /* Default browser form */
+    .default-form fieldset {
+      border: 3px solid var(--black);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .default-form legend {
+      padding: 0 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    .default-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-family: monospace;
+    }
+    
+    .default-form input,
+    .default-form select,
+    .default-form textarea {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      font-family: monospace;
+    }
+    
+    /* Raw form */
+    .raw-form {
+      border: 3px solid var(--black);
+      padding: 2rem;
+    }
+    
+    .raw-form-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      position: relative;
+    }
+    
+    .raw-form-title::after {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 5rem;
+      height: 0.2rem;
+      background-color: var(--black);
+    }
+    
+    .raw-form-group {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .raw-form label {
+      display: block;
+      font-family: monospace;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    
+    .raw-form input,
+    .raw-form textarea {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      border-bottom: 3px solid var(--black);
+      padding: 0.5rem 0;
+      font-family: monospace;
+    }
+    
+    .raw-form input:focus,
+    .raw-form textarea:focus {
+      outline: none;
+      border-bottom-color: var(--red);
+    }
+    
+    .raw-form-controls {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+    }
+    
+    .raw-control {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .raw-control input[type="checkbox"],
+    .raw-control input[type="radio"] {
+      width: auto;
+      margin-right: 1rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid var(--black);
+      position: relative;
+    }
+    
+    .raw-control input[type="checkbox"]:checked::after,
+    .raw-control input[type="radio"]:checked::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background-color: var(--black);
+    }
+    
+    .raw-control input[type="radio"] {
+      border-radius: 0;
+    }
+    
+    .raw-form select {
+      width: 100%;
+      border: 3px solid var(--black);
+      padding: 0.5rem;
+      background-color: var(--white);
+      font-family: monospace;
+      position: relative;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    
+    .select-wrapper {
+      position: relative;
+    }
+    
+    .select-wrapper::after {
+      content: "⌄";
+      position: absolute;
+      right: 1rem;
+      top: 0.5rem;
+      font-weight: bold;
+      pointer-events: none;
+    }
+    
+    .raw-form button {
+      background-color: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2rem;
+      font-family: monospace;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    
+    .raw-form button:hover {
+      background-color: var(--red);
+    }
+    
+    /* Form explanation */
+    .form-explanation {
+      margin-top: 4rem;
+    }
+    
+    .form-code {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre;
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+    
+    .back-link {
+      margin-top: 4rem;
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: var(--black);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+    }
+    
+    .back-link:hover {
+      background-color: var(--red);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BRUTALIST<span class="highlight">FOLIO</span></h1>
+    <div class="grid-marker"></div>
+  </header>
+  
+  <main>
+    <section class="project-details">
+      <h2 class="project-title">RAW FORMS</h2>
+      
+      <div class="project-grid">
+        <div class="project-specs">
+          <h3 class="specs-title">PROJECT SPECS</h3>
+          <ul class="specs-list">
+            <li>DATE: 2023</li>
+            <li>ROLE: UI Design</li>
+            <li>TOOLS: HTML, CSS, JavaScript</li>
+            <li>CLIENT: Self-initiated</li>
+          </ul>
+        </div>
+        
+        <div class="project-description">
+          <p>This project explores the brutalist approach to form design. Instead of hiding the native form elements behind ornate styling, this approach celebrates the raw functionality of web forms while maintaining a distinctive visual identity.</p>
+          <p>By stripping away decorative elements and focusing on the structural aspects of form controls, we create an interface that is both utilitarian and visually striking. The result is a form that speaks honestly about its digital nature.</p>
+        </div>
+      </div>
+      
+      <div class="form-showcase">
+        <div class="showcase-title">FORM DESIGN COMPARISON</div>
+        
+        <div class="forms-container">
+          <div class="default-form">
+            <h3>STANDARD BROWSER FORM</h3>
+            <p>Default browser form elements with minimal styling:</p>
+            
+            <fieldset>
+              <legend>PERSONAL INFORMATION</legend>
+              
+              <label for="default-name">Name:</label>
+              <input type="text" id="default-name" name="default-name">
+              
+              <label for="default-email">Email:</label>
+              <input type="email" id="default-email" name="default-email">
+              
+              <label for="default-message">Message:</label>
+              <textarea id="default-message" name="default-message" rows="4"></textarea>
+              
+              <label for="default-country">Country:</label>
+              <select id="default-country" name="default-country">
+                <option value="">Select Country</option>
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="uk">United Kingdom</option>
+                <option value="au">Australia</option>
+              </select>
+              
+              <div>
+                <input type="checkbox" id="default-subscribe" name="default-subscribe">
+                <label for="default-subscribe">Subscribe to newsletter</label>
+              </div>
+              
+              <div>
+                <input type="radio" id="default-option1" name="default-option" value="option1">
+                <label for="default-option1">Option 1</label>
+              </div>
+              
+              <div>
+                <input type="radio" id="default-option2" name="default-option" value="option2">
+                <label for="default-option2">Option 2</label>
+              </div>
+              
+              <input type="submit" value="Submit">
+            </fieldset>
+          </div>
+          
+          <div class="raw-form">
+            <h3 class="raw-form-title">BRUTALIST FORM</h3>
+            
+            <div class="raw-form-group">
+              <label for="raw-name">NAME</label>
+              <input type="text" id="raw-name" name="raw-name">
+            </div>
+            
+            <div class="raw-form-group">
+              <label for="raw-email">EMAIL</label>
+              <input type="email" id="raw-email" name="raw-email">
+            </div>
+            
+            <div class="raw-form-group">
+              <label for="raw-message">MESSAGE</label>
+              <textarea id="raw-message" name="raw-message" rows="4"></textarea>
+            </div>
+            
+            <div class="raw-form-group">
+              <label>SELECT COUNTRY</label>
+              <div class="select-wrapper">
+                <select id="raw-country" name="raw-country">
+                  <option value="">SELECT COUNTRY</option>
+                  <option value="us">UNITED STATES</option>
+                  <option value="ca">CANADA</option>
+                  <option value="uk">UNITED KINGDOM</option>
+                  <option value="au">AUSTRALIA</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="raw-form-group">
+              <label>OPTIONS</label>
+              <div class="raw-form-controls">
+                <div class="raw-control">
+                  <input type="checkbox" id="raw-subscribe" name="raw-subscribe">
+                  <label for="raw-subscribe">SUBSCRIBE TO NEWSLETTER</label>
+                </div>
+                
+                <div class="raw-control">
+                  <input type="radio" id="raw-option1" name="raw-option" value="option1">
+                  <label for="raw-option1">OPTION 1</label>
+                </div>
+                
+                <div class="raw-control">
+                  <input type="radio" id="raw-option2" name="raw-option" value="option2">
+                  <label for="raw-option2">OPTION 2</label>
+                </div>
+              </div>
+            </div>
+            
+            <button type="submit">SUBMIT</button>
+          </div>
+        </div>
+        
+        <div class="form-explanation">
+          <h3>RAW FORM DESIGN PRINCIPLES</h3>
+          <p>The brutalist form above follows these key principles:</p>
+          <ul>
+            <li>Intentionally visible structure</li>
+            <li>Custom styling that emphasizes rawness</li>
+            <li>Monospace fonts for all text elements</li>
+            <li>High contrast black-and-white palette</li>
+            <li>Deliberate exposure of form architecture</li>
+          </ul>
+          
+          <pre class="form-code">.raw-form input,
+.raw-form textarea {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid var(--black);
+  padding: 0.5rem 0;
+  font-family: monospace;
+}</pre>
+        </div>
+      </div>
+      
+      <a href="../index.html" class="back-link">BACK TO MAIN</a>
+    </section>
+  </main>
+  
+  <footer class="grid-footer">
+    <div class="footer-row top-row">
+      <div class="footer-cell nav-cell">
+        <ul class="footer-nav">
+          <li><a href="../index.html" class="footer-link">HOME</a></li>
+          <li><a href="../index.html#about" class="footer-link">ABOUT</a></li>
+          <li><a href="../index.html#contact" class="footer-link">CONTACT</a></li>
+          <li><a href="#" class="footer-link with-arrow">SOURCE</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-cell services-cell">
+        <ul class="footer-services">
+          <li>TYPOGRAPHY</li>
+          <li>WEB DESIGN & BUILD</li>
+          <li>GRID SYSTEMS</li>
+          <li>BRUTALIST UI</li>
+        </ul>
+      </div>
+      
+      <div class="footer-cell contact-cell">
+        <div class="get-in-touch">
+          <div class="mail-icon">✉</div>
+          <h2>GET IN TOUCH</h2>
+          <p>Let's work together!</p>
+          
+          <a href="../index.html#contact" class="message-btn">
+            SEND US A MESSAGE
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-row social-row">
+      <div class="footer-cell social-cell">
+        <a href="#" class="social-link with-arrow">LINKEDIN</a>
+      </div>
+      <div class="footer-cell social-cell">
+        <a href="https://instagram.com/steelzzdev" target="_blank" class="social-link with-arrow">INSTAGRAM</a>
+      </div>
+      <div class="footer-cell social-cell">
+        <a href="https://x.com/steelzzdev" target="_blank" class="social-link with-arrow">X (TWITTER)</a>
+      </div>
+      <div class="footer-cell privacy-cell">
+        <a href="#" class="meta-link">PRIVACY<span class="eye-icon">◎</span></a>
+      </div>
+    </div>
+    
+    <div class="footer-row info-row">
+      <div class="footer-cell icon-cell">
+        <div class="icon asterisk">✱</div>
+        <div class="icon smile">☺</div>
+      </div>
+      <div class="footer-cell copyright-cell">
+        <p>All work © BRUTALISTFOLIO 2023. All rights reserved</p>
+        <p>Designed by <a href="https://steelzz.com" target="_blank">Steelzz Development</a> @ 2025</p>
+      </div>
+      <div class="footer-cell version-cell">
+        <div class="globe-icon">⦿</div>
+        <div class="version-tag">V 1.0</div>
+      </div>
+    </div>
+    
+    <div class="footer-row brand-row">
+      <div class="big-brand">
+        <span class="brand-text">BRUTALIST<span class="highlight">FOLIO</span></span>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="../script.js"></script>
+</body>
+</html> 

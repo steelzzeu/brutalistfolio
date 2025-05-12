@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAW TYPOGRAPHY | BRUTALISTFOLIO</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* Project-specific styles */
+    .project-title {
+      font-size: 5rem;
+      letter-spacing: -3px;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .project-title::after {
+      content: "";
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      width: 10rem;
+      height: 0.5rem;
+      background-color: var(--black);
+    }
+    
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .project-specs {
+      border: 3px solid var(--black);
+      padding: 2rem;
+    }
+    
+    .specs-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    
+    .specs-list {
+      list-style-type: none;
+      font-family: monospace;
+    }
+    
+    .specs-list li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    
+    .specs-list li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+    }
+    
+    .project-description {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+    
+    .typography-example {
+      margin: 4rem 0;
+      border: 3px solid var(--black);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+    
+    .type-block {
+      position: relative;
+    }
+    
+    .type-label {
+      position: absolute;
+      top: -1.5rem;
+      left: 0;
+      font-size: 0.8rem;
+      background-color: var(--black);
+      color: var(--white);
+      padding: 0.2rem 0.5rem;
+    }
+    
+    .heading-block h1 {
+      font-size: 5rem;
+      line-height: 0.9;
+    }
+    
+    .heading-block h2 {
+      font-size: 3rem;
+      line-height: 0.9;
+    }
+    
+    .heading-block h3 {
+      font-size: 2rem;
+      line-height: 0.9;
+    }
+    
+    .body-block p {
+      font-family: monospace;
+      line-height: 1.5;
+    }
+    
+    .code-block {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    
+    .back-link {
+      margin-top: 4rem;
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: var(--black);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+    }
+    
+    .back-link:hover {
+      background-color: var(--red);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BRUTALIST<span class="highlight">FOLIO</span></h1>
+    <div class="grid-marker"></div>
+  </header>
+  
+  <main>
+    <section class="project-details">
+      <h2 class="project-title">RAW TYPOGRAPHY</h2>
+      
+      <div class="project-grid">
+        <div class="project-specs">
+          <h3 class="specs-title">PROJECT SPECS</h3>
+          <ul class="specs-list">
+            <li>DATE: 2023</li>
+            <li>ROLE: Typography Design</li>
+            <li>TOOLS: HTML, CSS</li>
+            <li>CLIENT: Self-initiated</li>
+          </ul>
+        </div>
+        
+        <div class="project-description">
+          <p>This project explores the raw essence of typography in brutalist web design. By stripping away decorative elements and focusing on pure typographic hierarchy, this exercise demonstrates how brutalist principles can be applied to create impactful digital experiences.</p>
+          <p>The design intentionally exposes the structure of the typographic system, embracing monospace fonts, stark contrast, and unfiltered presentation of content. Every element serves a specific function with no unnecessary decoration.</p>
+        </div>
+      </div>
+      
+      <div class="typography-example">
+        <div class="type-block heading-block">
+          <div class="type-label">HEADINGS</div>
+          <h1>HEADING 1</h1>
+          <h2>HEADING 2</h2>
+          <h3>HEADING 3</h3>
+        </div>
+        
+        <div class="type-block body-block">
+          <div class="type-label">BODY TEXT</div>
+          <p>This is standard body text in a monospace font. Notice the raw, unfiltered presentation and deliberate spacing. Typography in brutalism is about honesty in presentation.</p>
+          <p>Line height is carefully considered for readability while maintaining the raw aesthetic of brutalist design.</p>
+        </div>
+        
+        <div class="type-block code-block">
+          <div class="type-label">CODE BLOCK</div>
+          <code>
+body {
+  font-family: monospace;
+  line-height: 1.4;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+}</code>
+        </div>
+      </div>
+      
+      <a href="../index.html" class="back-link">BACK TO MAIN</a>
+    </section>
+  </main>
+  
+  <footer class="grid-footer">
+    <div class="footer-row top-row">
+      <div class="footer-cell nav-cell">
+        <ul class="footer-nav">
+          <li><a href="../index.html" class="footer-link">HOME</a></li>
+          <li><a href="../index.html#about" class="footer-link">ABOUT</a></li>
+          <li><a href="../index.html#contact" class="footer-link">CONTACT</a></li>
+          <li><a href="#" class="footer-link with-arrow">SOURCE</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-cell services-cell">
+        <ul class="footer-services">
+          <li>TYPOGRAPHY</li>
+          <li>WEB DESIGN & BUILD</li>
+          <li>GRID SYSTEMS</li>
+          <li>BRUTALIST UI</li>
+        </ul>
+      </div>
+      
+      <div class="footer-cell contact-cell">
+        <div class="get-in-touch">
+          <div class="mail-icon">✉</div>
+          <h2>GET IN TOUCH</h2>
+          <p>Let's work together!</p>
+          
+          <a href="../index.html#contact" class="message-btn">
+            SEND US A MESSAGE
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-row social-row">
+      <div class="footer-cell social-cell">
+        <a href="#" class="social-link with-arrow">LINKEDIN</a>
+      </div>
+      <div class="footer-cell social-cell">
+        <a href="https://instagram.com/steelzzdev" target="_blank" class="social-link with-arrow">INSTAGRAM</a>
+      </div>
+      <div class="footer-cell social-cell">
+        <a href="https://x.com/steelzzdev" target="_blank" class="social-link with-arrow">X (TWITTER)</a>
+      </div>
+      <div class="footer-cell privacy-cell">
+        <a href="#" class="meta-link">PRIVACY<span class="eye-icon">◎</span></a>
+      </div>
+    </div>
+    
+    <div class="footer-row info-row">
+      <div class="footer-cell icon-cell">
+        <div class="icon asterisk">✱</div>
+        <div class="icon smile">☺</div>
+      </div>
+      <div class="footer-cell copyright-cell">
+        <p>All work © BRUTALISTFOLIO 2023. All rights reserved</p>
+        <p>Designed by <a href="https://steelzz.com" target="_blank">Steelzz Development</a> @ 2025</p>
+      </div>
+      <div class="footer-cell version-cell">
+        <div class="globe-icon">⦿</div>
+        <div class="version-tag">V 1.0</div>
+      </div>
+    </div>
+    
+    <div class="footer-row brand-row">
+      <div class="big-brand">
+        <span class="brand-text">BRUTALIST<span class="highlight">FOLIO</span></span>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="../script.js"></script>
+</body>
+</html> 
